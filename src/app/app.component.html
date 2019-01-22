@@ -1,0 +1,78 @@
+
+<mat-vertical-stepper #stepper>
+  <mat-step [stepControl]="showroomForm">
+    <form [formGroup]="showroomForm">
+      <ng-template matStepLabel>Showroom Details</ng-template>
+      <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Placeholder" placeholder="Showroom Name" formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field>
+          <mat-label>Website</mat-label>
+          <input matInput placeholder="Placeholder" placeholder="Website" formControlName="website">
+      </mat-form-field>
+      <mat-form-field>
+          <mat-label>Phone</mat-label>
+          <input matInput placeholder="Placeholder" placeholder="Phone" formControlName="phone">
+      </mat-form-field>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="showroomForm">
+      <form [formGroup]="showroomForm">
+        <ng-template matStepLabel>Address</ng-template>         
+        <mat-form-field>
+            <input matInput placeholder="Address Line 1" formControlName="addressLine1" required>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Address Line 2" formControlName="addressLine2" >
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Address Line 3" formControlName="addressLine3">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Town/City" formControlName="city" required>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="County" formControlName="county" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Postcode" formControlName="postcode" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Country" formControlName="county" required>
+        </mat-form-field>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="showroomForm">
+        <form [formGroup]="showroomForm">
+          <ng-template matStepLabel>Opening Hours</ng-template>         
+          <business-hours   label="Monday Opening"></business-hours>
+          <business-hours  label="Monday Closing"></business-hours>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="showroomForm">
+          <form [formGroup]="showroomForm">
+            <ng-template matStepLabel>Services</ng-template>         
+            <mat-slide-toggle formControlName="cadService">CAD</mat-slide-toggle>
+            <mat-slide-toggle formControlName="disabledAccess">Disabled Access</mat-slide-toggle>
+            <mat-slide-toggle formControlName="sampleService">Sample Service</mat-slide-toggle>
+            <mat-slide-toggle formControlName="onsideParking">On-Site Access</mat-slide-toggle>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="showroomForm">
+            <form [formGroup]="showroomForm">
+              <ng-template matStepLabel>Images</ng-template>         
+            </form>
+          </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Save</ng-template>
+    <div>
+      <button type="submit" (click)="onSubmit()" [disabled]="!showroomForm.valid">Submit</button>      
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
+
+<router-outlet></router-outlet>
